@@ -1,12 +1,54 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @marcelgalang
+ Sign out
+ Watch 1
+  Star 0
+ Fork 5 crimpy/javascript-turning-api-responses-into-views-with-handlebars-v-000
+forked from learn-co-students/javascript-turning-api-responses-into-views-with-handlebars-v-000
+ Code  Pull requests 0  Projects 0  Pulse  Graphs
+Tree: d8d7707311 Find file Copy pathjavascript-turning-api-responses-into-views-with-handlebars-v-000/index.html
+d8d7707  14 days ago
+ Brianna Titone Done.
+2 contributors @scottcreynolds @pletcher
+RawBlameHistory
+34 lines (33 sloc)  994 Bytes
 <!DOCTYPE html>
 <html>
   <head>
     <title>Turning API Responses into Views with Handlebars</title>
   </head>
-  <body>
-    <main id="main">
+      <body>
+  <main id="main">
+    <a href="#" onclick="getRepositories()">Get Repositories</a>
+    <div id="repositories"></div>
     </main>
     <script src="handlebars.js"></script>
     <script src="index.js"></script>
+    <script id="repository-template" type="text/x-handlebars-template">
+      <ul>
+       {{#each this}}
+         <li>
+           <h2><a href="{{html_url}}">{{name}}</a></h2>
+           {{> authorPartial owner }}
+           <p>Watchers: {{watchers_count}}</p>
+           <p>Forks: {{forks_count}}</p>
+           <p>Issues: {{open_issues_count}}</p>
+         </li>
+        {{/each}}
+      </ul>
+    </script>
+    <script id="author-partial-template" type="text/x-handlebars-template">
+      <section>
+        <header><h4>Created By {{login}}</h4></header>
+        <img src="{{avatar_url}}" height="32" width="32">
+      </section>
+    </script>
   </body>
 </html>
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
