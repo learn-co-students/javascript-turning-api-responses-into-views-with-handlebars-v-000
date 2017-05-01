@@ -5,7 +5,26 @@
   </head>
   <body>
     <main id="main">
+      <a href="#" onclick="getRepositories()">Get Repositories</a>
+      <div id="repositories"></div>
     </main>
+    <script id="repositories-template" type="text/x-handlebars-template">
+      <ul>
+        {{#each this}}
+        <h2><a href="{{url}}">{{name}}</a></h2>
+        {{> authorPartial owner}}
+        <p>Watchers: {{watchers_count}}</p><br>
+        <p>Forks: {{forks_count}}</p><br>
+        <p>Issues: {{open_issues_count}}</p><br>
+        {{/each}}
+      </ul>
+    </script>
+    <script id="author-partial-template" type="text/x-handlebars-template">
+      <section>
+          <header><h4>Created By: {{ownder.login}}</h4></header>
+          <img src="{{owner.avatar_url}}" height="96" width="96">
+        </section>
+    </script>
     <script src="handlebars.js"></script>
     <script src="index.js"></script>
   </body>
